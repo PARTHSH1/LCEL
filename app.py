@@ -1,6 +1,8 @@
 ## RAG Q&A Conversation With PDF Including Chat History
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
-import sqlite3
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
@@ -15,12 +17,8 @@ from langchain_community.document_loaders import PyPDFLoader
 import os
 import chromadb.api
 chromadb.api.client.SharedSystemClient.clear_system_cache()
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from dotenv import load_dotenv
 load_dotenv()
-
 os.environ['HF_TOKEN']=os.getenv("HF_TOKEN")
 embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
