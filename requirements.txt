@@ -32,4 +32,4 @@ numexpr
 huggingface_hub
 streamlit
 gunicorn==20.1.0
-sqlite3 >= 3.35.0
+sqlite3 == 3.35.0
