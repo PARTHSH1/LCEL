@@ -147,7 +147,7 @@ posthog==3.7.2
 
 propcache==0.2.0
 protobuf==5.28.3
-
+pysqlite3-binary
 
 pyarrow==18.0.0
 pyasn1==0.6.1
