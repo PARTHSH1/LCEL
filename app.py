@@ -14,6 +14,9 @@ from langchain_community.document_loaders import PyPDFLoader
 import os
 import chromadb.api
 chromadb.api.client.SharedSystemClient.clear_system_cache()
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -126,7 +129,9 @@ if api_key:
             st.write("Chat History:", session_history.messages)
 else:
     st.warning("Please enter the GRoq API Key")
-
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 
 
